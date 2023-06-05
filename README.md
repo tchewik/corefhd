@@ -76,9 +76,9 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
 
 - <details> <summary> <b>(Option 1) With Docker</b> </summary>
   
-   * Run the [container](hub.docker.com/r/tchewik/isanlp_corefhd) locally or remotely using the following command:
+   * Run the [container](https://hub.docker.com/r/tchewik/isanlp_corefhd) locally or remotely using the following command using selected tag (`base` or `rh`):
       ```commandline
-         docker run --rm -d -p 3336:3333 --name corefhd tchewik/corefhd:<tag>
+         docker run --rm -d -p 3336:3333 --name corefhd tchewik/isanlp_corefhd:<tag>
       ```   
    * Connect to it from Python: 
      ```python
@@ -119,7 +119,7 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
      corefhd_processor = (ProcessorCorefHD(cuda_device=-1, use_discourse=True),
                 ['text', 'tokens', 'sentences',
                  'lemma', 'postag', 'syntax_dep_tree', 'entities', 'rst'],
-                {0: 'entity_clusters'})
+                {'entity_clusters': 'entity_clusters'})
     ```
   </details>
 
@@ -155,34 +155,36 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
           ])
         ```
    
-   * Run the constructed pipeline:
-      ```python
-      text = open('text_example.txt', 'r').read().strip()
-      result = ppl(text)
-      ```
-     The result is given in token spans:
-      ```python
+* Run the constructed pipeline:
+   ```python
+   text = open('text_example.txt', 'r').read().strip()
+   result = ppl(text)
+   ```
+  The result is given in token spans:
+   ```python
       >>> result['entity_clusters']
       [[[0, 1], [7, 7], [19, 19], [103, 104], [126, 126]],
-      [[23, 27], [30, 30]],
-      [[68, 69], [72, 72]],
-      [[74, 75], [133, 134], [140, 140], [149, 149]],
-      [[44, 53], [138, 138], [152, 152]],
-      [[37, 37], [142, 142]]]
-      ```
-     Example finding the corresponding text spans:
-     ```python
-     def print_coreference_clusters(text, tokens, entity_clusters):
-        def mention_to_str(mention):
-            return text[tokens[mention[0]].begin: tokens[mention[1]].end]
-        for entity in entity_clusters:
-            print(f'{mention_to_str(entity[0])} ::: {[mention_to_str(mention) for mention in entity[1:]]}')
+       [[23, 27], [30, 30]],
+       [[68, 69], [72, 72]],
+       [[78, 83], [132, 132]],
+       [[44, 53], [138, 138], [152, 152]],
+       [[133, 134], [140, 140], [149, 149]],
+       [[89, 90], [142, 142]]]
+   ```
+  Example finding the corresponding text spans:
+  ```python
+  def print_coreference_clusters(text, tokens, entity_clusters):
+     def mention_to_str(mention):
+         return text[tokens[mention[0]].begin: tokens[mention[1]].end]
+     for entity in entity_clusters:
+         print(f'{mention_to_str(entity[0])} ::: {[mention_to_str(mention) for mention in entity[1:]]}')
      
-     >>> print_coreference_clusters(result['text'], result['tokens'], result['entity_clusters'])
-     Иоганн Шильтбергер ::: ['он', 'отрок', 'сам Иоганн', 'он']
-     рыцаря по имени Леонгарт Рихартингер ::: ['его']
-     венгерские крестоносцы ::: ['которым']
-     бургундские рыцари ::: ['бургундские рыцари', 'Они', 'им']
-     венгерский король и будущий император Священной Римской империи Сигизмунд I ::: ['Сигизмунда', 'Сигизмунд']
-     турок ::: ['турок']
-     ```
+  >>> print_coreference_clusters(result['text'], result['tokens'], result['entity_clusters'])
+  Иоганн Шильтбергер ::: ['он', 'отрок', 'сам Иоганн', 'он']
+  рыцаря по имени Леонгарт Рихартингер ::: ['его']
+  венгерские крестоносцы ::: ['которым']
+  24-летним сыном герцога Бургундии Жаном Бесстрашным ::: ['Жана']
+  венгерский король и будущий император Священной Римской империи Сигизмунд I ::: ['Сигизмунда', 'Сигизмунд']
+  бургундские рыцари ::: ['Они', 'им']
+  турецкой армией ::: ['турок']
+  ```
