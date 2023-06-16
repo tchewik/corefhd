@@ -190,15 +190,15 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
   ```
 
 ## Cite
-Further information and examples can be found in [our paper](https://www.dialog-21.ru/media/5753/chistovaeplussmirnovi028.pdf):
+Further information and examples can be found in [our paper](https://www.dialog-21.ru/media/5887/chistovaeplussmirnovi109.pdf):
 
 ```bibtex
-@INPROCEEDINGS{chistova2022dialogue,
+@INPROCEEDINGS{chistova2023light,
       author = {Chistova, E. and Smirnov, I.},
-      title = {Discourse-aware text classification for argument mining},
+      title = {Light Coreference Resolution for Russian with Hierarchical Discourse Features},
       booktitle = {Computational Linguistics and Intellectual Technologies. Papers from the Annual International Conference "Dialogue" (2023)},
-      year = {2022},
-      number = {21},
+      year = {2023},
+      number = {22},
       pages = {34--41}
 }
 ```
