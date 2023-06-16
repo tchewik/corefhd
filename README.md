@@ -188,3 +188,17 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
   бургундские рыцари ::: ['Они', 'им']
   турецкой армией ::: ['турок']
   ```
+
+## Cite
+Further information and examples can be found in [our paper](https://www.dialog-21.ru/media/5753/chistovaeplussmirnovi028.pdf):
+
+```bibtex
+@INPROCEEDINGS{chistova2022dialogue,
+      author = {Chistova, E. and Smirnov, I.},
+      title = {Discourse-aware text classification for argument mining},
+      booktitle = {Computational Linguistics and Intellectual Technologies. Papers from the Annual International Conference "Dialogue" (2023)},
+      year = {2022},
+      number = {21},
+      pages = {34--41}
+}
+```
