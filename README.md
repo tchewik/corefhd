@@ -84,7 +84,7 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
      ```python
      from isanlp.processor_remote import ProcessorRemote
      
-     coref_address = ['0.0.0.0', 3335]
+     coref_address = ['0.0.0.0', 3336]
      
      # Base model
      corefhd = (ProcessorRemote(coref_address[0], coref_address[1], 'default'),
