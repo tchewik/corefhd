@@ -2,7 +2,6 @@
 
 from typing import Iterator, Tuple, List
 
-import spacy
 from .ontonotes import OntonotesSentence
 
 

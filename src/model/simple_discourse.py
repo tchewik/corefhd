@@ -1,10 +1,8 @@
 from typing import List, Optional
 
-import numpy as np
+import networkx as nx
 from isanlp.annotation import Token
 from isanlp.annotation_rst import DiscourseUnit
-from multiprocessing import Process, Queue
-import networkx as nx
 
 
 class SimpleDiscourseUnit:
