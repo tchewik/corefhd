@@ -84,7 +84,7 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
      ```python
      from isanlp.processor_remote import ProcessorRemote
      
-     coref_address = ['0.0.0.0', 3335]
+     coref_address = ['0.0.0.0', 3336]
      
      # Base model
      corefhd = (ProcessorRemote(coref_address[0], coref_address[1], 'default'),
@@ -188,3 +188,17 @@ There are two models from the test leaderboard of RuCoCo-23: base and Rh-enhance
   бургундские рыцари ::: ['Они', 'им']
   турецкой армией ::: ['турок']
   ```
+
+## Cite
+Further information and examples can be found in [our paper](https://www.dialog-21.ru/media/5887/chistovaeplussmirnovi109.pdf):
+
+```bibtex
+@INPROCEEDINGS{chistova2023light,
+      author = {Chistova, E. and Smirnov, I.},
+      title = {Light Coreference Resolution for Russian with Hierarchical Discourse Features},
+      booktitle = {Computational Linguistics and Intellectual Technologies. Papers from the Annual International Conference "Dialogue" (2023)},
+      year = {2023},
+      number = {22},
+      pages = {34--41}
+}
+```
