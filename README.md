@@ -2,6 +2,8 @@
 
 This is our solution for [RuCoCo-23 shared task](https://www.dialog-21.ru/en/evaluation/2023/rucoco/): Coreference Resolution in Russian (only single antecedent resolution).
 
+[Colab notebook](https://colab.research.google.com/drive/1UvtAsK8SubM0PWCZeWRoq2yLXr8XX9DT?usp=sharing) for baseline (no RST) model.
+
 ### 1. Set up the syntax & NER parser
 
 - <details> <summary> <b>(Option 1) With Docker</b> </summary>
